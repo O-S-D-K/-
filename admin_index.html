@@ -1,0 +1,29 @@
+// 動物のリスト
+const animals = ["猫", "犬", "ライオン", "ウサギ", "イルカ", "キリン", "ペンギン", "ゾウ", "フクロウ", "リス"];
+
+// フォームの処理
+document.getElementById('nameForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // ページリロードを防止
+
+    // 名前を取得
+    const yourName = document.getElementById('yourName').value;
+    const theirName = document.getElementById('theirName').value;
+
+    // 動物をランダムに選ぶ
+    const yourAnimal = animals[Math.floor(Math.random() * animals.length)];
+    const theirAnimal = animals[Math.floor(Math.random() * animals.length)];
+
+    // 結果を表示
+    const resultText = `${yourName} は ${yourAnimal}、${theirName} は ${theirAnimal} に例えられます！`;
+    document.getElementById('result').textContent = resultText;
+
+    // 名前と結果をローカルストレージに保存
+    saveNames(yourName, theirName, yourAnimal, theirAnimal);
+});
+
+// 名前と結果をローカルストレージに保存する関数
+function saveNames(yourName, theirName, yourAnimal, theirAnimal) {
+    const savedData = JSON.parse(localStorage.getItem('savedData')) || [];
+    savedData.push({ yourName, theirName, yourAnimal, theirAnimal });
+    localStorage.setItem('savedData', JSON.stringify(savedData));
+}
