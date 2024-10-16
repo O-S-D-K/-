@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>動物に例えるページ</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #4b0082;
+        }
+        form {
+            margin: 20px auto;
+            padding: 20px;
+            border: 2px solid #4b0082;
+            display: inline-block;
+            background-color: #ffffff;
+        }
+        button {
+            background-color: #4b0082;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6a0dad;
+        }
+    </style>
+</head>
+<body>
+    <h1>動物に例えるゲーム</h1>
+    <p>あなたと相手を動物に例えると何でしょうか？</p>
+
+    <form id="nameForm">
+        <label for="yourName">あなたの名前: </label>
+        <input type="text" id="yourName" required><br><br>
+
+        <label for="theirName">相手の名前: </label>
+        <input type="text" id="theirName" required><br><br>
+
+        <button type="submit">動物に例える</button>
+    </form>
+
+    <h2>結果:</h2>
+    <p id="result"></p>
+
+    <script src="app.js"></script>
+</body>
+</html>
